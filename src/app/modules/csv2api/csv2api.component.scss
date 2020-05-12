@@ -1,0 +1,60 @@
+.upload-container {
+    display: flex;
+    margin: 0px auto;
+    justify-content: stretch;
+
+    .upload-form {
+        margin: auto;
+    }
+}
+
+.mat-card>.mat-card-actions:last-child {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.results-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .result-container{
+        // flex-grow: 1;
+        // width: 30%;
+        flex-basis: 45%;
+        margin: 10px 5px;
+
+        mat-card-content {
+            .file-meta {
+                display: flex;
+                margin-bottom: 5px;
+
+                .label {
+                    flex: 15%;
+                    font-weight: bold;
+                }
+                .value {
+                    flex: 85%;  
+                    overflow: hidden;
+                    word-wrap: none;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            mat-card-content {
+                .file-meta {
+                    flex-direction: column;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+app-loader {
+    overflow: hidden;
+}

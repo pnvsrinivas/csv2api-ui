@@ -1,0 +1,15 @@
+<div class="error-container">
+    <div class="error">
+        <div class="error-title">
+            {{errorDetails.title}}
+        </div>
+        
+        <div class="error-description">
+            {{errorDetails.description}}
+        </div>
+        
+        <div class="error-help">
+            {{ errorDetails.help }} <a routerLink="/error/under-development" *ngIf="canShowEmail">click here</a>
+        </div>
+    </div>
+</div>

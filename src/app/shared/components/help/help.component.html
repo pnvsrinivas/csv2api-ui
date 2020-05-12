@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Help</h1>
+<div mat-dialog-content>
+    <mat-vertical-stepper [linear]="false" #stepper>
+        <mat-step>
+          <form>
+            <ng-template matStepLabel>Upload .csv file(s)</ng-template>
+            <div>
+                <!-- TODO: Show image -->
+                <!-- <button mat-button matStepperNext>Next</button> -->
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <form>
+            <ng-template matStepLabel>Copy/grab your dynamic API Url</ng-template>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Use it</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+    </mat-vertical-stepper>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="close()" cdkFocusInitial>Close</button>
+</div>

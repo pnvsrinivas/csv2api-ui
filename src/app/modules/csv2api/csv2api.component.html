@@ -1,0 +1,36 @@
+<app-loader *ngIf="is_loading"></app-loader>
+<div class="upload-container">
+  <div class="upload-form">
+    <mat-card>
+        <mat-card-actions>
+          Choose a .csv file
+          <button mat-raised-button color="primary" (click)="onFileUpload()">
+            <mat-icon>file_upload</mat-icon>
+            Upload
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <input type="file" #fileInput id="fileUpload" name="fileUpload" multiple accept=".csv, text/csv" style="display: none;" />
+  </div>
+</div>
+
+<div class="results-container">
+    <div class="result-container" *ngFor="let result of results.reverse()">
+        <mat-card>
+            <mat-card-content>
+                <div class="file-meta">
+                  <div class="label">Name: </div> <div class="value">{{ result.filename }}</div>
+                </div>
+                <div class="file-meta">
+                  <div class="label">API: </div> <div class="value">{{ result.url }}</div>
+                </div>
+                <div class="file-meta">
+                  <div class="label">Validity: </div> <div class="value">{{ result.validity }}</div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <a mat-raised-button class="primary" href="{{result.url}}" target="_blank">{{result.filename}}</a>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+</div>
