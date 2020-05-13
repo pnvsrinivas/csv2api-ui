@@ -9,7 +9,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const apiUrl = 'http://csv2api.pythonanywhere.com/api';
+const apiUrl = 'https://csv2api.pythonanywhere.com/api';
 // const apiUrl = 'http://127.0.0.1:8001/api';
 
 @Injectable({
