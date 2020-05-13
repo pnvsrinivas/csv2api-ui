@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ErrorComponent implements OnInit {
 
   errorCode: string;
-  errorDetails: Object = {};
+  errorDetails: any = {};
 
   private ERROR_CODES = {
     '404': {
