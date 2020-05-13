@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-footer',
@@ -10,6 +11,8 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   copyRightYear = new Date().getFullYear();
+
+  version: string = environment.version;
 
   ngOnInit(): void {
   }

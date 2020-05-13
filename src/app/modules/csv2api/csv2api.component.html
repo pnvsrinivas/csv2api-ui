@@ -17,20 +17,21 @@
 <div class="results-container">
     <div class="result-container" *ngFor="let result of results.reverse()">
         <mat-card>
-            <mat-card-content>
-                <div class="file-meta">
-                  <div class="label">Name: </div> <div class="value">{{ result.filename }}</div>
-                </div>
-                <div class="file-meta">
-                  <div class="label">API: </div> <div class="value">{{ result.url }}</div>
-                </div>
-                <div class="file-meta">
-                  <div class="label">Validity: </div> <div class="value">{{ result.validity }}</div>
-                </div>
-            </mat-card-content>
-            <mat-card-actions>
-              <a mat-raised-button class="primary" href="{{result.url}}" target="_blank">{{result.filename}}</a>
-            </mat-card-actions>
-          </mat-card>
+          <mat-card-title>
+            {{ result.filename }}
+          </mat-card-title>
+          <mat-card-content>
+              <div class="file-meta">
+                <div class="label">RESTful Url: </div> <div class="value">{{ result.url }}</div>
+              </div>
+              <div class="file-meta">
+                <div class="label">Validity: </div> <div class="value">{{ result.validity }}</div>
+              </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-raised-button color="primary" href="{{result.url}}?format=json" target="_blank">Visit</a>
+            <a mat-raised-button color="primary" (click)="onView(result.id)">View</a>
+          </mat-card-actions>
+        </mat-card>
     </div>
 </div>

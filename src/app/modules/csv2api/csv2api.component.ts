@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { FileMeta } from 'src/app/shared/classes/file-meta';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-csv2api',
@@ -13,10 +14,14 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class Csv2apiComponent implements OnInit {
 
   @ViewChild("fileInput", {static: false}) fileInput: ElementRef;
-  results: FileMeta[] = []; // [{ url: 'http://127.0.0.1:8001/api/file/47a09a35-d63e-4e42-82f6-73c429a7d59c/', filename: 'test_share_rules_13.csv', validity: new Date() }, { url: 'http://127.0.0.1:8001/api/file/47a09a35-d63e-4e42-82f6-73c429a7d59c/', filename: 'test_share_rules_13.csv', validity: new Date() }, { url: 'http://127.0.0.1:8001/api/file/47a09a35-d63e-4e42-82f6-73c429a7d59c/', filename: 'test_share_rules_13.csv', validity: new Date() }, { url: 'http://127.0.0.1:8001/api/file/47a09a35-d63e-4e42-82f6-73c429a7d59c/', filename: 'test_share_rules_13.csv', validity: new Date() }, { url: 'http://127.0.0.1:8001/api/file/47a09a35-d63e-4e42-82f6-73c429a7d59c/', filename: 'test_share_rules_13.csv', validity: new Date() }, { url: 'http://127.0.0.1:8001/api/file/47a09a35-d63e-4e42-82f6-73c429a7d59c/', filename: 'test_share_rules_13.csv', validity: new Date() }, { url: 'http://127.0.0.1:8001/api/file/47a09a35-d63e-4e42-82f6-73c429a7d59c/', filename: 'test_share_rules_13.csv', validity: new Date() }];
+  results: FileMeta[] = []; // [{ id: '38d50e58-d700-4bb7-8f43-fc20fbcc0fad', url: 'http://127.0.0.1:8001/api/file/38d50e58-d700-4bb7-8f43-fc20fbcc0fad/', filename: 'test_share_rules_13.csv', validity: new Date() }, { id: '38d50e58-d700-4bb7-8f43-fc20fbcc0fad', url: 'http://127.0.0.1:8001/api/file/38d50e58-d700-4bb7-8f43-fc20fbcc0fad/', filename: 'test_share_rules_13.csv', validity: new Date() }];
   is_loading: boolean = false;
 
-  constructor(public service: ApiService, private _snackBar: MatSnackBar) { }
+  constructor(
+    public service: ApiService, 
+    private _snackBar: MatSnackBar,
+    public router: Router
+  ) { }
 
   openSnackBar(message: string, action: string = "") {
     let snackBarRef = this._snackBar.open(message, action, {
@@ -27,6 +32,11 @@ export class Csv2apiComponent implements OnInit {
       const fileInput = this.fileInput.nativeElement;
       this.upload(fileInput);
     });
+  }
+
+  onView(id: string) {
+    console.log(id)
+    this.router.navigate(['/data', id]);
   }
 
   ngOnInit(): void {

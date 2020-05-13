@@ -1,4 +1,4 @@
-export class File {
+export class FileData {
     no_of_rows: number;
     no_of_cols: number;
     page: number;

@@ -1,0 +1,62 @@
+.table-container {
+    
+}
+
+.enable-borders {
+    
+    .table-panel {
+        max-width: 100%;
+        overflow: hidden;
+        overflow-x: auto;
+        display: flex;
+
+        table {
+            margin: auto;
+        }
+    }
+
+    th.mat-header-cell {
+        color: black;
+        background-color: #e6e6e6;
+        font-size: 14px !important;
+    }
+
+    .mat-cell {
+        // color: black;
+    }
+
+    td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+        border: 1px solid lightgray;
+        padding: 0px 10px;
+        width: 125px;
+        max-width: 125px;
+        min-width: 125px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    tr.mat-footer-row, tr.mat-row {
+        height: 35px;
+    }
+
+    tr.mat-row:hover {
+        background-color: #e6e6e6;
+    }
+
+    .mat-column-rowindex {
+        background: #e6e6e6;
+        width: auto !important;
+        min-width: auto !important;
+        text-align: center;
+        color: black !important;
+        font-size: 14px !important;
+    }
+
+    ::ng-deep {
+        .mat-header-row, .mat-paginator-container {
+            min-height: 40px;
+            height: 40px;
+        }
+    }
+}
