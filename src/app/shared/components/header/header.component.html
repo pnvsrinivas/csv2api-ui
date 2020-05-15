@@ -1,12 +1,27 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span class="logo-title" routerLink="/">csv2api</span>
+        <span class="logo-title" routerLink="/">{{title}}</span>
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
                 <li>
                     <button mat-icon-button (click)="openHelp()">
                         <mat-icon>help_outline</mat-icon>
                     </button>
+                </li>
+                <li>
+                    <button mat-button [matMenuTriggerFor]="settingsMenu">
+                        <mat-icon>settings</mat-icon>
+                    </button>
+                    <mat-menu #settingsMenu="matMenu">
+                        <button mat-menu-item (click)="clearStorage()">
+                            <mat-icon>clear_all</mat-icon>
+                            Clear history
+                        </button>
+                        <button mat-menu-item routerLink="/error/under-development">
+                            <mat-icon>bug_report</mat-icon>
+                            Report a bug
+                        </button>
+                    </mat-menu>
                 </li>
             </ul>
         </div>

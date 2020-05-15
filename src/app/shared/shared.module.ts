@@ -20,6 +20,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ErrorComponent } from './components/error/error.component';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
   declarations: [
@@ -54,5 +55,8 @@ import { ErrorComponent } from './components/error/error.component';
     ErrorComponent,
     ReversePipe
   ],
+  providers: [
+    NotificationService
+  ]
 })
 export class SharedModule { }

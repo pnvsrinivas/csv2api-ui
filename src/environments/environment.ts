@@ -6,6 +6,7 @@ import { version } from '../../package.json';
 
 export const environment = {
   production: false,
+  title: 'csv2api',
   apiUrl: 'http://127.0.0.1:8001/api',
   version: version
 };

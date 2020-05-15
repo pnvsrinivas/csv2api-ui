@@ -12,29 +12,34 @@ const routes: Routes = [
     path: '',
     component: DefaultComponent,
     children: [
+      // {
+      //   path: '',
+      //   pathMatch: 'full',
+      //   redirectTo: 'upload'
+      // },
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'upload'
-      },
-      {
-        path: 'upload',
-        component: Csv2apiComponent
+        component: Csv2apiComponent,
+        data: { title: "Home" }
       },
       {
         path: 'data/:id',
         component: DataComponent,
         resolve:{         
           fileData: FileResolve
-        }  
+        },
+        data: { title: "Data view" }
       },
       {
         path: 'error',
-        component: ErrorComponent
+        component: ErrorComponent,
+        data: { title: "Error" }
       },
       {
         path: 'error/:id',
-        component: ErrorComponent
+        component: ErrorComponent,
+        data: { title: "Error" }
       },
       {
         path: "**",

@@ -25,6 +25,15 @@
         flex-basis: 45%;
         margin: 10px 5px;
 
+        mat-card-title {
+            display: flex;
+            justify-content: space-between;
+
+            .mat-card-close {
+                cursor: pointer;
+            }
+        }
+
         mat-card-content {
             margin-bottom: 0;
             margin-top: 10px;
