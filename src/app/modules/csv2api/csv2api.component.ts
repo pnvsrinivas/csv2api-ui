@@ -37,15 +37,26 @@ export class Csv2apiComponent implements OnInit {
     });
   }
 
+  copyUrlToClipboard(val: string){
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = `${val}?format=json`;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+  }
+
+
   updateStorage(){
     if(this.results.length)
       localStorage.setItem('data', JSON.stringify(this.results));
     else
       localStorage.removeItem('data');
-  }
-
-  onView(id: string) {
-    this.router.navigate(['/data', id]);
   }
 
   ngOnInit(): void {

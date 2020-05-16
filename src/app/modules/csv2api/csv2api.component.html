@@ -28,6 +28,11 @@
           <mat-card-content>
               <div class="file-meta">
                 <div class="label">RESTful Url: </div> <div class="value">{{ result.url }}</div>
+                <div class="copy-icon" (click)="copyUrlToClipboard(result.url)">
+                  <span class="material-icons">
+                    file_copy
+                    </span>
+                </div>
               </div>
               <div class="file-meta">
                 <div class="label">Validity: </div> <div class="value">{{ result.validity }}</div>
@@ -35,7 +40,7 @@
           </mat-card-content>
           <mat-card-actions>
             <a mat-raised-button color="primary" href="{{result.url}}?format=json" target="_blank">Visit</a>
-            <a mat-raised-button color="primary" (click)="onView(result.id)">View</a>
+            <a mat-raised-button color="primary" [routerLink]="[ '/data', result.id]">View</a>
           </mat-card-actions>
         </mat-card>
     </div>

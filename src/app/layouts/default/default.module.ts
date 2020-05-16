@@ -14,11 +14,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { StatsComponent } from '../../modules/stats/stats.component';
+import { DataComponent } from '../../modules/data/data.component';
 
 @NgModule({
   declarations: [
     DefaultComponent,
-    Csv2apiComponent
+    Csv2apiComponent,
+    DataComponent,
+    StatsComponent
   ],
   imports: [
     CommonModule,

@@ -5,6 +5,7 @@ import { Csv2apiComponent } from './modules/csv2api/csv2api.component';
 import { ErrorComponent } from './shared/components/error/error.component';
 import { DataComponent } from './modules/data/data.component';
 import { FileResolve } from './modules/file-resolve';
+import { StatsComponent } from './modules/stats/stats.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,14 @@ const routes: Routes = [
         pathMatch: 'full',
         component: Csv2apiComponent,
         data: { title: "Home" }
+      },
+      {
+        path: 'stats/:id',
+        component: StatsComponent,
+        resolve:{         
+          fileData: FileResolve
+        },
+        data: { title: "Stats" }
       },
       {
         path: 'data/:id',
