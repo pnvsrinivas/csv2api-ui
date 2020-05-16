@@ -49,6 +49,7 @@ export class Csv2apiComponent implements OnInit {
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
+    this.notifyService.notify('Copied!!');
   }
 
 
