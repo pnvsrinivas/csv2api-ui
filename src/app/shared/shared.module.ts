@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ErrorComponent } from './components/error/error.component';
 import { NotificationService } from './services/notification.service';
+import { ConfirmationComponent } from './widgets/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NotificationService } from './services/notification.service';
     LoaderComponent, 
     HelpComponent,
     ReversePipe,
-    ErrorComponent
+    ErrorComponent,
+    ConfirmationComponent
   ],
   imports: [
     CommonModule,
@@ -53,10 +55,12 @@ import { NotificationService } from './services/notification.service';
     LoaderComponent,
     HelpComponent,
     ErrorComponent,
+    ConfirmationComponent,
     ReversePipe
   ],
   providers: [
     NotificationService
-  ]
+  ],
+  entryComponents: [ConfirmationComponent]
 })
 export class SharedModule { }

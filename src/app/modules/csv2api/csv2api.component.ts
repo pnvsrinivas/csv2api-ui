@@ -7,6 +7,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { ClearAllService } from 'src/app/shared/services/clear-all.service';
+import { ConfirmationModel, ConfirmationComponent } from 'src/app/shared/widgets/confirmation/confirmation.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-csv2api',
@@ -23,10 +25,11 @@ export class Csv2apiComponent implements OnInit {
     public service: ApiService, 
     private notifyService: NotificationService,
     public router: Router,
-    public clearHistoryService: ClearAllService
+    public clearHistoryService: ClearAllService,
+    public dialog: MatDialog
   ) { 
     this.clearHistoryService.changeEmitted$.subscribe(text => {
-      console.log(text, localStorage.length);
+      // console.log(text, localStorage.length);
       if(localStorage.length){
         localStorage.clear();
         this.remove();
@@ -70,6 +73,21 @@ export class Csv2apiComponent implements OnInit {
         this.upload(fileInput);
       };  
       fileInput.click();  
+  }
+
+  removeAfterConfirmation(id: string = null) {
+    const message = `Are you sure you want to do this?`;
+    const dialogData = new ConfirmationModel("Confirmation", message);
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+ 
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if(dialogResult) {
+        this.remove(id);
+      }
+    });
   }
 
   remove(id: string = null) {

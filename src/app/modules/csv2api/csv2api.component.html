@@ -19,7 +19,7 @@
         <mat-card>
           <mat-card-title>
             <div class="mat-card-title">{{ result.filename }}</div>
-            <div class="mat-card-close" (click)="remove(result.id)">
+            <div class="mat-card-close" (click)="removeAfterConfirmation(result.id)">
               <span class="material-icons">
                 close
                 </span>

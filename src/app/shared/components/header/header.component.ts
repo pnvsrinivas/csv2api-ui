@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../services/notification.service';
 import { ClearAllService } from '../../services/clear-all.service';
+import { ConfirmationModel, ConfirmationComponent } from '../../widgets/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-header',
@@ -33,7 +34,18 @@ export class HeaderComponent implements OnInit {
   }
 
   clearStorage() {
-    this.clearStorageService.emitChange("Clear history emit !!");
+    const message = `Are you sure you want to do this?`;
+    const dialogData = new ConfirmationModel("Confirmation", message);
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+ 
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if(dialogResult) {
+        this.clearStorageService.emitChange("Clear history emit !!");
+      }
+    });
   }
 
 }
