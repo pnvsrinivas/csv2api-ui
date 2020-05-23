@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ErrorComponent } from './components/error/error.component';
 import { NotificationService } from './services/notification.service';
 import { ConfirmationComponent } from './widgets/confirmation/confirmation.component';
+import { SortByPipe } from './pipes/sort-by.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ConfirmationComponent } from './widgets/confirmation/confirmation.compo
     HelpComponent,
     ReversePipe,
     ErrorComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    SortByPipe
   ],
   imports: [
     CommonModule,
@@ -56,7 +58,8 @@ import { ConfirmationComponent } from './widgets/confirmation/confirmation.compo
     HelpComponent,
     ErrorComponent,
     ConfirmationComponent,
-    ReversePipe
+    ReversePipe,
+    SortByPipe
   ],
   providers: [
     NotificationService

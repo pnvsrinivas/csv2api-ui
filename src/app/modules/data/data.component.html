@@ -1,7 +1,7 @@
 <h2>Data</h2>
 
 <div class="table-container">
-  <div class="enable-borders">
+  <div class="enable-borders" *ngIf="data">
     <div class="table-panel">
       <table mat-table [dataSource]="data.data">
         <ng-container matColumnDef="rowindex">
@@ -46,5 +46,10 @@
       showFirstLastButtons
     >
     </mat-paginator>
+  </div>
+  <div *ngIf="!data" class="info-container">
+    <div class="info">
+      Not found / invalid
+    </div>
   </div>
 </div>

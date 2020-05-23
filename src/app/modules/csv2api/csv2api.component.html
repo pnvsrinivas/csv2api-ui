@@ -15,7 +15,7 @@
 </div>
 
 <div class="results-container">
-    <div class="result-container" *ngFor="let result of results; trackBy: trackByFunc">
+    <div class="result-container" *ngFor="let result of results | sortBy:'desc':'validity'; trackBy: trackByFunc">
         <mat-card>
           <mat-card-title>
             <div class="mat-card-title">{{ result.filename }}</div>

@@ -34,7 +34,7 @@ export class ApiService {
     return this.http.get<FileData>(url)
       .pipe(
         tap(file => console.log('fetched data')),
-        catchError(this.handleError<FileData>('getFile'))
+        catchError(this.handleError<FileData>('getFile', null))
       );
   }
 
