@@ -40,6 +40,10 @@ export class Csv2apiComponent implements OnInit {
     });
   }
 
+  trackByFunc(i, x) {
+    return x.validity;
+  }
+
   copyUrlToClipboard(val: string){
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';

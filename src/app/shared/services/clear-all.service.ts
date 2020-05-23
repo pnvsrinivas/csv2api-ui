@@ -11,7 +11,7 @@ export class ClearAllService {
   changeEmitted$ = this.emitChangeSource.asObservable();
 
   emitChange(change: any) {
-      this.emitChangeSource.next(change);
+    this.emitChangeSource.next(change);
   }
 
 }
